@@ -1,0 +1,140 @@
+  $(document).ready(function() {
+    $('#contact_form').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            first_name: {
+                validators: {
+                        stringLength: {
+                        min: 2,
+                        message: 'Nome muito curto'
+                    },
+                        notEmpty: {
+                        	message: 'Digite seu nome'
+                    },
+                    		string:{
+								   message: 'Não pode conter números'                 		
+                    		
+                    		}
+                }
+            },
+             last_name: {
+                validators: {
+                     stringLength: {
+                        min: 2,
+                        message: 'Sobrenome muito curto'
+                    },
+                    notEmpty: {
+                        message: 'Digite seu sobrenome'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Digite seu email'
+                    },
+                    emailAddress: {
+                        message: 'Digite um email válido'
+                    }
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'Digite um número'
+                    },
+                    phone: {
+                        country: 'BR',
+                        message: 'Digite um número válido'
+                    }
+                    
+                }
+            },
+            address: {
+                validators: {
+                     stringLength: {
+                        min: 8,
+                        message: 'Digite seu endereço completo'
+                    },
+                    notEmpty: {
+                        message: 'Digite seu endereço'
+                    }
+                }
+            },
+            city: {
+                validators: {
+                     stringLength: {
+                        min: 3,
+                        message: 'Cidade não válida'
+                    },
+                    notEmpty: {
+                        message: 'Digite sua cidade'
+                    }
+                }
+            },
+            state: {
+                validators: {
+                    notEmpty: {
+                        message: 'Selecione um Estado'
+                    }
+                }
+            },
+            car: {
+                validators: {
+                    notEmpty: {
+                        message: 'Digite o modelo de seu carro'
+                    },
+                    stringLength: {
+                        min: 3,
+                        max: 15,
+                        message: 'Digite um modelo válido'
+                    }
+                }
+            },
+            chassi: {
+                validators: {
+                      stringLength: {
+                        min: 20,
+                        max: 30,
+                        message:'Digite o número de chassi '
+                    },
+                    notEmpty: {
+                        message: 'Obrigatório este campo'
+                    }
+                    }
+                },
+            year: {
+                validators: {
+                      stringLength: {
+                        min: 4,
+                        max: 4,
+                        message:'Digite um ano válido '
+                    },
+                    notEmpty: {
+                        message: 'Obrigatório este campo'
+                    }
+                    }
+                },
+           input_senha: {
+                validators: {
+                    notEmpty: {
+                        message: 'Obrigatório este campo'
+                    }
+                }
+           }
+          }
+        });
+       $("contact_form").submit(function() {
+    			$(this).submit(function() {
+       	 		return false;
+    		});
+    		return true;
+		});
+});
+        
+
