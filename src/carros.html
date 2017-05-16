@@ -1,0 +1,425 @@
+<!--
+
+	Projeto I
+	Aluno: Edson Lemes
+	Tópicos em programação Web.
+	 
+	Descrição geral da página
+	 
+	Esta página exibe os carros que estão a venda, 
+	ela é exibida mesmo o usuário não estando logando no sistema; 
+	entretando, não é possível realizar compra se não estiver de fato
+	logado. A compra é processada através de um ajax que manda ao servidor 
+	a requisição. A página é responsiva para os formatos de telas definidos.
+	E ainda, a acessiblidade fica por conta dos 'roles' de cada input, button
+	ou o menu no topo da página.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="Edson" >
+
+    <title>Compre seu carro</title>
+
+    <!-- Bootstrap estilo e fontes para ícones -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	  <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    <link href="css/main.css" rel="stylesheet">
+    
+     <script src="js/jquery.js"></script>
+   
+   
+   <!-- Estilos para css da barra de acessibilidade -->
+	<link href="css/accessibility.css" rel="stylesheet">
+   
+   <!-- Script que controla a janela de aparição do formulário de compra.
+   		Juntamente com a validação no servidor com uso de ajax -->  
+   <script type="text/javascript">
+     
+	 
+	$.ajax({
+		'url': 'serverside/checkcon.php',
+    	'success': function(resp) {
+      	if(resp === "1") {
+        		$(':button').prop('disabled', false);
+      	}
+    	}
+   });
+   
+   $( document ).ready(function() {
+	 	$("button").click(function() {
+	 		if(this.id != 'menu'){
+	 			$('html, body').animate({ scrollTop: 0 }, 'slow');
+    			//$("#confirma").html('<br><br><br><br><br><br>');
+    			$("#confirma").fadeIn(1500);
+    			
+    			var preco = '#' + this.id + 'p';
+    			var valor = $(preco).text();
+    			$("#preco").text(valor);
+        	}		
+		});
+	});
+
+	
+	function do_cred(){
+			
+ 			var numcard=$("#cardNumber").val();
+ 			var mes = $("#expityMonth").val();
+ 			var ano = $("#expityYear").val();
+ 			var pass=$("#cvCode").val();
+ 			if(numcard!="" && pass!="" && ano!="" && mes!=""){
+  				$.ajax({
+  					type:'post',
+  						url:'serverside/credit.php',
+  					data:{
+   					do_credit:"do_credit",
+   					numcard:numcard,
+ 						mes:mes,
+ 						ano:ano,  					
+  	 					password:pass
+  					},
+  					success:function(response) {
+  						if(response=="success"){
+  	  						$("#cfcompra").fadeIn(500);
+  	  						
+  	  						$("#confirma").fadeOut(7000);
+							$("#cfcompra").fadeOut(5000);  	   					
+  	  					}
+  						else{
+	 						$("#declcompra").fadeIn(1500);    
+    						$("#declcompra").fadeOut(500);
+    					}
+  					}
+  				});
+ 			}
+ 			else{
+  				alert("Faltam detalhes");
+ 			}
+
+ 			return false;
+		}		
+
+		
+	 </script>
+	 <!-- Usa recursos prontos do bootstrap, tais como o carousel -->
+     <script src="js/bootstrap.min.js"></script>
+   
+	 
+</head>
+
+<body>
+ <div class="container">
+ 	<div class="row">
+  		<div class="col-xs-12 col-sm-12">
+        	<!-- Lista usada para a barra de acessibilidade -->
+	      	<ul id="accessibility">
+            	<li>
+                	<a accesskey="1" href="#navbar">
+                   	Ir para o Menu
+                    <span>1</span>
+                	</a>
+            	</li>
+            	<li>
+                	<a accesskey="2" href="#portfolio">
+                   	Ir para o Conteúdo
+                   	<span>2</span>
+                	</a>
+            	</li>
+            	<li>
+                	<a accesskey="3" href="#rodape">
+                   	Ir para o Rodapé
+                   	<span>3</span>
+                	</a>
+            	</li>
+        		</ul>
+      </div>
+	    <!-- Menu de navegação, semelhante as outras páginas.-->
+       <div class="col-xs-12 col-sm-12">
+            <div id="navbar" class="navbar navbar-default" role="navegation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" id="menu">
+                        <span class="sr-only">Barra de Menu </span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#main-slider"><i class="icon-home" role="button"></i></a></li>
+                        
+                        <li><a href="index.html" role="button">Início</a></li>
+                        <li><a href="#" role="button">Veículos</a></li>
+                        <li><a href="cadastro.html" role="button">Cadastro</a></li>
+                        <li><a href="cliente.html" role="button">Área do cliente</a></li>
+                       
+                    </ul>
+                    
+                </div>
+                
+            </div>
+    
+	</div>
+	</div>
+   
+   <div class="row">
+		 <div class="col-md-6 col-lg-6 col-xs-0 col-sm-0" style="align-items:center"> </div>
+		 
+		 	<!-- Este div representa um formulário oculto que aparece na tela quando o usuário clicar em comprar algum veículo.
+		 		  Ele abre na parte superior da tela, o formulário é enviado ao servidor por um método ajax, deste modo retorna
+		 		  uma resposta do servidor, sendo exibida na tela, assim não há a necessidade de recarregamento de página ou
+		 		  direcionamentos. O objetivo de sua ocultação, é a mesma que o ao componente modal do bootstrap, fazer um 
+		 		  procedimento na mesma página.
+		 		  Acessibilidade: foram definidos 'roles' para os botões e os inputs e alerts.
+		 		  Responsivo conforme o tamanho da tela, para medidas menores ocupa 12 colunas no grides, para maiores ocupa 6. 
+		 	
+		 	-->
+		  	<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 aler alert-info" id="confirma" style="border: solid 1px #7badc5; align:center" hidden="true">
+              <div class="row">
+        				<div class="col-xs-12 col-md-12">
+            			<div class="panel panel-default">
+                			<div class="panel-heading">
+                   			<legend><h3 class="panel-title">
+                        	Informe os detalhes do cartão de crédito
+                    			</h3></legend>
+                    		</div>
+                			<div class="panel-body">
+                    			<form autocomplete="on" role="form" method="post" action="" onsubmit="return do_cred();" id="confcompra" name="confcompra">
+                    				<div class="form-group">
+                        			<label for="cardNumber" class="sr-only">
+                           			 Número do cartão de crédito</label>
+                        			<div class="input-group">
+                            			<input type="text" class="form-control" id="cardNumber" placeholder="Número do cartão de crédito"
+                                			role="textbox" aria-required="true" required autofocus />
+                            			<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        			</div>
+                    				</div>
+                    				<div class="row">
+                        			<div class="col-xs-7 col-md-7">
+                            			<div class="form-group">
+                                			<label for="expityMonth" class="sr-only">
+                                    			Mês e ano que expira o cartão</label>
+                                		<div class="col-xs-6 col-lg-6 pl-ziro">
+                                    	<input type="text" class="form-control" id="expityMonth" placeholder="MM" role="textbox" aria-required="true" required />
+                                		</div>
+                                		<div class="col-xs-6 col-lg-6 pl-ziro">
+                                			<label for="expityYear" class="sr-only">Ano que expira o cartão</label>
+                                    		<input type="text" class="form-control" id="expityYear" placeholder="AAAA" role="textbox" aria-required="true" required /></div>
+                            			</div>
+                        			</div>
+                        			<div class="col-xs-5 col-md-5 pull-right">
+                            			<div class="form-group">
+                                			<label for="cvCode" class="sr-only">
+                                    		Senha numérica do cartão de crédito</label>
+                                			<input type="password" class="form-control" id="cvCode" placeholder="CV" role="textbox" aria-required="true" required />
+                            			</div>
+                        			</div>
+                        
+                        
+                    				</div>
+                    				<ul class="nav nav-pills nav-stacked">
+                					<li class="active"><a href="#" ><span class="badge pull-right" id="preco"></span> Preço a ser pago</a>
+                					</li>
+            						</ul>
+            						<br>
+                    				<input type="submit" class="btn btn-success btn-lg btn-block" value="Confirmar Compra" role="button" id="fsub" />
+                    			</form>
+                			</div>
+              			</div>
+              			<ul class="nav nav-pills nav-stacked">
+                		<li class="active">
+                			<div class="alert alert-success" style="text-align:center" id="cfcompra" hidden="true" role="alert">
+									<strong><i class="glyphicon glyphicon-exclamation-sign"></i> Compra finalizada. Ela será processada em breve!</strong>                
+                			</div>
+                		</li>
+                		<li class="active">
+								<div class="alert alert-danger" style="text-align:center" id="declcompra" hidden="true" role="alert">
+									<strong><i class="glyphicon glyphicon-remove-sign"></i> Houve um problema ao consultar seus dados de créditos.</strong>
+						
+								</div>                
+              			</li>
+            			</ul>
+            		</div>
+    				</div>
+				</div>		  
+		 </div>
+       <div class="row">
+				<br><br>
+				<!-- Representa um painel, feito com a classe list-group do bootstrap. Possui apenas um tipo,
+					  que é o tipo carro.
+					  				 
+				  -->
+            <div class="col-md-3" role="tabpanel">
+                <p class="lead">Tipo</p>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Carros</a>
+                </div>
+                
+            </div>
+            
+            <!--  Novamente aqui encontra-se o carousel do bootstrap, porém agora com 
+					  imagens. Para exibição do carro, foi usado as classes 'thumbnail' do bootstrap
+					  conforme suas definições, assim como os botões que eles apresentam.
+					  Lembrando que os dados aqui representados, em breve serão inseridos através de uma
+					  consulta ao banco.
+					  Acessibilidade : imagens com textos alternativos, role para os botões, textos dentro de h4.
+			    -->
+
+            <div class="col-md-9">
+					 
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12" style="align:center">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" style="align:center">
+                                <div class="item active"  >
+                                    <img class="slide-image img-responsive" src="images/cars/images.jpg" alt="Motor de um carro"  role="img">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image img-responsive" src="images/cars/marcas.jpg" alt="Logotipos de fabricantes de carro"  role="img">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="images/cars/carl_cruze.jpg" alt="Foto interna do Carro Cruze"   role="img">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" id="portfolio">
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/cars/rsz_cruze.png" alt="Carro Chevrolet Cruze" role="img" class="img-responsive">
+                            <div class="caption">
+                                <h4 class="pull-right" id="car1p">R$ 51.990</h4>
+                                <h4><a href="#">Chevrolet Cruze LT 1.8 16V</a>
+                                </h4>
+                                <p>Automático, modelo 2013. </p>
+                            </div>
+                            <div class="ratings" id="bot">
+                                <button class="btn btn-xs btn-success" role="button" id="car1" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+			                         <span class="sr-only">Carro Chevrolet Cruze</span>        
+                     			   </button>	         
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/cars/prisma.jpg" alt="Carro Chevrolet Prisma Joy" role="img" class="img-responsive">
+                            <div class="caption">
+                                <h4 class="pull-right" id="car2p">R$ 42.990</h4>
+                                <h4><a href="#">Chevrolet Prisma Joy 1.0</a>
+                                </h4>
+                                <p>Manual, modelo 2017. 0 km</p>
+                            </div>
+                            <div class="ratings">
+                            
+                                <button class="btn btn-xs btn-success" role="button" id="car2" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+			                         <span class="sr-only">Carro Chevrolet Prisma Joy</span>        
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/cars/rsz_gc2.jpg" alt="Carro Geely GC2" role="img" class="img-responsive">
+                            <div class="caption">
+                                <h4 class="pull-right" id="car3p">R$ 29.990</h4>
+                                <h4><a href="#">Geely GC2 1.0</a>
+                                </h4>
+                                <p>subcompacto chinês, importanto ao Brasil com motor de 3 cilindros.</p>
+                            </div>
+                            <div class="ratings">
+                                <button class="btn btn-xs btn-success" role="button" id="car3" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+			                         <span class="sr-only">Carro Geely GC2</span>        
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/cars/passat.png" alt="Carro Volkswagen Passat" role="img" class="img-responsive">
+                            <div class="caption">
+                                <h4 class="pull-right" id="car4p">R$ 144.500</h4>
+                                <h4><a href="#">Volkswagen Passat 2.0 turbo</a>
+                                </h4>
+                                <p>Novo Passat, de 0 a 100 em 6.7s</p>
+                            </div>
+                            <div class="ratings">
+                                <button class="btn btn-xs btn-success" role="button" id="car4" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+			                         <span class="sr-only">Carro Volkswagen Passat</span>        
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/cars/rsz_fiesta.jpg" alt="Carro Ford Fiesta" role="img" class="img-responsive">
+                            <div class="caption">
+                                <h4 class="pull-right" id="car5p">R$ 27.899</h4>
+                                <h4><a href="#">Ford Fiesta 1.6</a>
+                                </h4>
+                                <p>Manual, modelo 2012, 60mil Km. Único dono</p>
+                            </div>
+                            <div class="ratings">
+                                <button class="btn btn-xs btn-success" role="button" id="car5" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+			                         <span class="sr-only">Carro Ford Fiesta</span>
+			                        </button>        
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer role="contentinfo" id="rodape">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="text-align:center">2017 &copy;Moss AP</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+<!--
+
+	Projeto I
+	Aluno: Edson Lemes
+	Tópicos em programação Web.
+	 
+	Descrição geral da página
+	 
+	Esta é a página inicial da aplicação. Nela estão destacados o menu
+	que serve para navegar entre as páginas do site. Deste modo, as demais
+	informações exibidas não são muito relevantes. No fim, há um formuĺário de
+	contato, caso o usuário desejar.
+	A página é responsível para alguns formatos de tela.
+	A acessibilidade fica por conta dos 'roles', o menu de acessibilidade no topo
+	da página, além de labels ocultos.
+
+-->
+
+
+<!DOCTYPE html>
+	<html lang="pt-br">
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="Edson" >
+	    <title>Loja de Carros</title>
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    
+	    <!--Arquivo de fonts -->
+	    <link href="css/font-awesome.min.css" rel="stylesheet">
+	    
+	    <link href="css/main.css" rel="stylesheet">
+	   
+	    
+	    
+	    <script src="js/jquery.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	  	 <script>
+	  	 	jQuery(document).ready(function(){
+		 		//Ajax contact
+				var form = $('.contact-form');
+				form.submit(function () {
+					$this = $(this);
+					$.post($(this).attr('action'), function(data) {
+					$this.prev().text(data.message).fadeIn().delay(3000).fadeOut();
+					},'json');
+					return false;
+				});	  	 
+	  	 	});
+	  	 
+	  	 
+	  	 </script>
+	  	 
+	  	 <!-- Estilos para css da barra de acessibilidade -->
+	  	 <link href="css/accessibility.css" rel="stylesheet">
+	</head><!--/head-->
+	
+	<body >
+	
+		<!-- 
+			Dentro da tag main está definido o menu de navegação, a partir dele é possível abrir
+			outras páginas da aplicação. Esta é a parte principal do index.html.		
+					
+			Componentes usados no Menu: glyphicon-home,icon-bar para o menu responsivo e navbar modificada.
+		-->
+		<main role="main">
+			
+	    <header id="header" role="banner">
+	        <div class="container">
+	        		<div class="row">
+	        			<div class="col-xs-12 col-sm-12"
+	        		 <!-- Lista usada para a barra de acessibilidade -->
+	        		 <ul id="accessibility">
+            		<li>
+                		<a accesskey="1" href="#navbar">
+                    		Ir para o conteúdo
+                    		<span>1</span>
+                		</a>
+            		</li>
+            		<li>
+                		<a accesskey="2" href="#navbar">
+                    		Ir para o menu
+                    		<span>2</span>
+                		</a>
+            		</li>
+            		<li class="last-item">
+                		<a accesskey="3" href="#contact">
+                    		Ir para o rodapé
+                    		<span>3</span>
+                		</a>
+            		</li>
+        			</ul>
+	            <div id="navbar" class="navbar navbar-default">
+	                <div class="navbar-header">
+	                	  <!-- Menu responsivo para dispositivos pequenos -->
+	                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                        <span class="sr-only">Navegação no Menu </span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                    </button>
+	                    <a class="navbar-brand" href="index.html"></a>
+	                </div>
+	                <div class="collapse navbar-collapse">
+	                    <!-- Menu lado a lado para telas médias e grandes -->
+	                    <ul class="nav navbar-nav" role="menubar">
+	                        <li class="active"><a href="#main-slider" role="button"><i class="icon-home"></i></a></li>
+	                        
+	                        <li><a href="carros.html" role="button">Veículos</a></li>
+	                        <li><a href="cadastro.html" role="button">Cadastrar</a></li>
+	                        <li><a href="login.html" role="button">Área do Cliente</a></li>
+	                        <li><a href="#contact" role="button">Contato</a></li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </header><!--/#header-->
+		</main>
+		<!-- 
+			Nesta section estão postas informações gerais sobre a aplicação, como não é uma informação
+			relevante para o funcionamento do site, esta sessão está fora da tag main.		
+			Esta parte usa o component carousel para exibição de textos ou imagens em forma de slide. Neste
+			caso apenas é exibido informações em forma de parágrafos.
+			Os tamanhos são o mesmo para todos os tipos de dispositivos, pois ela sempre ocupa 12 colunas no grid.
+		-->
+	    <section id="main-slider" class="carousel" role="">
+	        <div class="carousel-inner">
+	            <div class="item active">
+	                <div class="container">
+	                	<div class="row">
+	                		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	                    <div class="carousel-content">
+	                        <h1 class="titulo">Compre seu carro</h1>
+	                        <p class="lead">Gostaria de trocar ou adquirir um novo veículo?<br>Temos várias opções, tanto para veículos novos e usados.</p>
+	                    </div>
+								</div>                    
+	                   </div> 
+	                </div>
+	            </div><!--/.item-->
+	            <div class="item">
+	                <div class="container">
+	                	<div class="row">
+	                		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	                    <div class="carousel-content">
+	                        <h1 class="titulo">Manutenção</h1>
+	                        <p class="lead">Precisa de peças para o seu veículo?<br>Temos produtos das principais montadoras de veículos ( GM, VW, Fiat, etc.). </p>
+	                    </div>
+	                    </div></div>
+	                </div>
+	            </div><!--/.item-->
+	        </div><!--/.carousel-inner-->
+	        <br><br><div class="row"><br>
+	        		<div class="col-lg-6 col-sm-12 col-xs-6 "> 
+	        <a class="prev" href="#main-slider" data-slide="prev" role="button"><i class="icon-angle-left"></i></a></div>
+	        		<div class="col-lg-6 col-sm-12 col-xs-6 "> 
+	        <a class="next" href="#main-slider" data-slide="next" role="button"><i class="icon-angle-right"></i></a>
+	    		</div></div>    <br><br>
+	    		
+	   </section><!--/#main-slider-->
+	
+		<!--Aqui é exibido as informações para contato, para cada tamanho de tela há uma configuração válida.
+			 Componentes usados: controles de formulário do bootstrap, tais como "form-control" com a sua devida
+			 formatação, além de botões estilizados também pelo próprio framework. A validação deste formulário 
+			 é feito com recursos do próprio html5.
+			 Acessiblidade: OS campos podem ser acessados pelo teclado. No início da página há links que direcionam para cá.
+			 Os inputs, botões e links externos estão referenciados conforme o "role" de cada componente.
+		
+		 -->
+	   <section id="contact" role="dialog">
+	        <div class="container">
+	            <div class="box last">
+	                <div class="row">
+	                    <div class="col-sm-8 col-lg-4 col-md-6 col-xs-12">
+	                        <h1>Contato</h1>
+	                        <p>Envie-nos suas opiniões e dúvidas.</p>
+	                        <div class="status alert alert-success" style="display: none"></div>
+	                        <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="serverside/sendemail.php" role="form">
+	                            <div class="row">
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <input type="text" class="form-control" required="required" placeholder="Nome" role="textbox">
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <input type="email" class="form-control" required="required" placeholder="Email" role="textbox">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="row">
+	                                <div class="col-sm-12">
+	                                    <div class="form-group">
+	                                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Mensagem" role="textbox"></textarea>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <button type="submit" class="btn btn-danger btn-lg" role="button">Enviar</button>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div><!--/.col-sm-6-->
+	                    <div class="col-sm-4 col-lg-8 col-md-6 col-xs-12">
+	                      
+	                        <div class="row">
+	                            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+	                            	    <h1>Nosso Endereço</h1>
+	                                <address>
+	                                    <strong>MOSS AP, emp.</strong><br>
+	                                    795 R. A, distrito 55<br>
+	                                    Chapecó, Brasil, BR<br>
+	                                    <abbr title="Telefone">Tel:</abbr> (49) 456-7890
+	                                </address>
+	                            </div>
+	                           
+	                        
+	                        
+	                       		 <h1>Redes sociais</h1>
+	                            <div class="col-md-6 col-lg-3 col-sm-12 col-xs-12">
+	                                <ul class="social">
+	                                    <li><a href="#"><i class="icon-facebook icon-social" role="link"></i> Facebook</a></li>
+	                                    <!-- <li><a href="#"><i class="icon-google-plus icon-social"></i> Google Plus</a></li>
+	                                    <li><a href="#"><i class="icon-pinterest icon-social"></i> Pinterest</a></li> -->
+	                                </ul>
+	                            </div>
+	                            <div class="col-md-6 col-lg-3 col-sm-12 col-xs-12">
+	                                <ul class="social">
+	                                   <!-- <li><a href="#"><i class="icon-linkedin icon-social"></i> Linkedin</a></li> -->
+	                                    <li><a href="#"><i class="icon-twitter icon-social" role="link"></i> Twitter</a></li>
+	                                   <!-- <li><a href="#"><i class="icon-youtube icon-social"></i> Youtube</a></li> -->
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div><!--/.col-sm-6-->
+	                </div><!--/.row-->
+	            </div><!--/.box-->
+	        </div><!--/.container-->
+	    </section><!--/#contact-->
+	    <footer id="footer" role="contentinfo">
+	        <div class="container">
+	            <div class="row">
+	                <div class=" col-lg-12 col-sm-12 col-xs-12">
+	                    &copy; 2017 <a target="_blank" href="#contacts" title="Loja de veiculos" role="button"></a>. Todos os direitos reservados.
+	                </div>
+	                
+	            </div>
+	        </div>
+	    </footer><!--/#footer-->
+	
+	</body>
+	</html>
