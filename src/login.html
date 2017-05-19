@@ -63,7 +63,7 @@
     							$("#error").fadeOut(500);
     						}
   						}
-  					});
+  				});
  				}
 
  				else{
@@ -99,7 +99,7 @@
         		</div>
         		<!-- Menu semelhante as outras páginas -->
 				<div class="col-sm-12 col-xs-12">
-					<div id="navbar" class="navbar navbar-default" role="banner">
+					<div id="navbar" class="navbar navbar-default" role="navegation">
                 	<div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="button">
                         <span class="sr-only">Menu de navegação </span>
@@ -135,17 +135,17 @@
 					<legend><h3 style="text-align:center">Formulário de Login</h3></legend>
 					  <form action="" autocomplete="on" role="form" method="post" id="login-form" name="login-form" onsubmit="return do_login();">
     				
-  						<label for="username" class="uname sr-only" data-icon="@" > Digite seu Email </label>
+  						<label for="username" class="uname sr-only" data-icon="@" > Digite seu Email (Obrigatório) </label>
   						<input id="user_email" name="user_email" required type="email" placeholder="mymail@mail.com"/>
     					
     					
-  						<label for="password" class="youpasswd sr-only" data-icon="#"> Sua Senha</label>
+  						<label for="password" class="youpasswd sr-only" data-icon="#"> Digite sua Senha (Obrigatório)</label>
   						<input id="password" name="password" required type="password" placeholder="ex. X8df!90EO" /> 
     					
   						<input type="submit" value="Login" name="fsub" id="fsub" role="button" />
     					
 
-						<div class="alert alert-danger"id="error" hidden="true" role="alert">
+						<div class="alert alert-danger" id="error" hidden="true" role="alert">
 							<strong>Login ou senha incorretos.</strong>
 						</div>
 						<div class="alert alert-info" id="ok" style="text-align:center"  hidden="true" role="alert">

@@ -38,7 +38,19 @@
    
    <!-- Estilos para css da barra de acessibilidade -->
 	<link href="css/accessibility.css" rel="stylesheet">
-   
+    <style type="text/css" media="print">
+        img {
+
+            display: none;
+        }
+        .carousel-holder{
+            display: none;
+
+
+        }
+
+
+    </style>
    <!-- Script que controla a janela de aparição do formulário de compra.
    		Juntamente com a validação no servidor com uso de ajax -->  
    <script type="text/javascript">
@@ -195,7 +207,7 @@
                     			<form autocomplete="on" role="form" method="post" action="" onsubmit="return do_cred();" id="confcompra" name="confcompra">
                     				<div class="form-group">
                         			<label for="cardNumber" class="sr-only">
-                           			 Número do cartão de crédito</label>
+                           			 Número do cartão de crédito (Obrigatório)</label>
                         			<div class="input-group">
                             			<input type="text" class="form-control" id="cardNumber" placeholder="Número do cartão de crédito"
                                 			role="textbox" aria-required="true" required autofocus />
@@ -206,19 +218,19 @@
                         			<div class="col-xs-7 col-md-7">
                             			<div class="form-group">
                                 			<label for="expityMonth" class="sr-only">
-                                    			Mês e ano que expira o cartão</label>
+                                    			Mês que expira o cartão (Obrigatório)</label>
                                 		<div class="col-xs-6 col-lg-6 pl-ziro">
                                     	<input type="text" class="form-control" id="expityMonth" placeholder="MM" role="textbox" aria-required="true" required />
                                 		</div>
                                 		<div class="col-xs-6 col-lg-6 pl-ziro">
-                                			<label for="expityYear" class="sr-only">Ano que expira o cartão</label>
+                                			<label for="expityYear" class="sr-only">Ano que expira o cartão (Obrigatório)</label>
                                     		<input type="text" class="form-control" id="expityYear" placeholder="AAAA" role="textbox" aria-required="true" required /></div>
                             			</div>
                         			</div>
                         			<div class="col-xs-5 col-md-5 pull-right">
                             			<div class="form-group">
                                 			<label for="cvCode" class="sr-only">
-                                    		Senha numérica do cartão de crédito</label>
+                                    		Senha numérica do cartão de crédito (Obrigatório)</label>
                                 			<input type="password" class="form-control" id="cvCode" placeholder="CV" role="textbox" aria-required="true" required />
                             			</div>
                         			</div>

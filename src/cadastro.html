@@ -157,33 +157,33 @@
     				<form class="well form-horizontal" action=" " method="post"  id="contact_form" role="form" onsubmit="return do_form();">
     				   <!--text input para o nome -->
 						<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Nome</label>  
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Nome (Obrigatório)</label>  
   							<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
   								<div class="input-group">
   									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  									<input  name="first_name" placeholder="Nome" class="form-control"  type="text" role="textbox">
+  									<input  name="first_name" placeholder="Nome" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
 						</div>
 
 						<!--text input para o sobrenome-->
 						<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only" >Sobrenome</label> 
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only" >Sobrenome (Obrigatório)</label> 
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
   									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  									<input name="last_name" placeholder="Sobrenome" class="form-control"  type="text" role="textbox">
+  									<input name="last_name" placeholder="Sobrenome" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
 						</div>
 
 						<!-- text input para o email-->
        				<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">E-Mail</label>  
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">E-Mail (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
         							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  									<input name="email" placeholder="E-Mail" class="form-control"  type="text" role="textbox">
+  									<input name="email" placeholder="E-Mail" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
 						</div>
@@ -191,33 +191,33 @@
 
 						<!-- Text input para o telefone-->
        				<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Telefone</label>  
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Telefone (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
         							<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-  									<input name="phone" placeholder="(XX)XXXX-XXXX" class="form-control" type="text" role="textbox">
+  									<input name="phone" placeholder="(XX)XXXX-XXXX" class="form-control" type="text" role="textbox" required="true">
    	 						</div>
   							</div>
 						</div>
 
 						<!-- Text input para o endereço-->
      					<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Endereço</label>  
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Endereço (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
         							<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  									<input name="address" placeholder="Endereço" class="form-control" type="text" role="textbox">
+  									<input name="address" placeholder="Endereço" class="form-control" type="text" role="textbox" required="true">
     							</div>
   							</div>
 						</div>
 
 						<!-- Text input para a cidade-->
  						<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Cidade</label>  
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Cidade (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
         							<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  									<input name="city" placeholder="Cidade" class="form-control"  type="text" role="textbox">
+  									<input name="city" placeholder="Cidade" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
 						</div>
@@ -225,11 +225,11 @@
 						<!-- Select Basic para o estado -->
    	
 						<div class="form-group"> 
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Estado</label>
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Estado (Obrigatório)</label>
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 selectContainer">
     							<div class="input-group">
         							<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    								<select name="state" class="form-control selectpicker" >
+    								<select name="state" class="form-control selectpicker" required="true"  role="select">
       								<option value=" " >Escolha seu estado</option>
      									<option>Santa Catarina</option>
      									<option>Rio Grande do Sul</option>
@@ -242,22 +242,22 @@
 						<!-- Text input para o veiculo-->
 
 						<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Veículo</label>  
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Veículo (Obrigatório)</label>  
     							<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     								<div class="input-group">
         								<span class="input-group-addon"><i class="car"></i></span>
-  										<input name="car" placeholder="Veículo" class="form-control"  type="text" role="textbox">
+  										<input name="car" placeholder="Veículo" class="form-control"  type="text" role="textbox" required="true">
     								</div>
 								</div>
 						</div>
 
 						<!-- Text input para o chassi-->
 						<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Chassi</label>  
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Chassi (Obrigatório)</label>  
    							<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     								<div class="input-group">
         								<span class="input-group-addon"><i class="cogwheels"></i></span>
-  										<input name="chassi" placeholder="Chassi" class="form-control" type="text" role="textbox">
+  										<input name="chassi" placeholder="Chassi" class="form-control" type="text" role="textbox" required="true">
     								</div>
   								</div>
 						</div>
@@ -267,22 +267,22 @@
 						<!-- Text area para o ano de fabricacao -->
   
 						<div class="form-group">
-  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only" >Ano de fabricação</label>
+  							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only" >Ano de fabricação (Obrigatório)</label>
     							<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     								<div class="input-group">
         								<span class="input-group-addon"><i class="notes"></i></span>
-        								<input class="form-control" name="year" placeholder="Ano de fabricação" role="textbox">
+        								<input class="form-control" name="year" placeholder="Ano de fabricação" role="textbox" required="true">
   									</div>
   								</div>
 						</div>
 
 						<!-- Text pass para a senha-->
 						<div class="form-group">
-							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only" for="input_senha"  >Senha</label>
+							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only" for="input_senha"  >Senha (Obrigatório) </label>
 								<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="keys"></i></span>
-										<input type="password" id="input_senha" name="input_senha" class="form-control" placeholder="Senha"/> 
+										<input type="password" id="input_senha" name="input_senha" class="form-control" placeholder="Senha" required="true" /> 
 										<div id="pstrength" role="progressbar">
     										<div id="input_senha_minchar"></div>
     										<div id="input_senha_text"></div>
