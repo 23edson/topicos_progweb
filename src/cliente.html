@@ -26,40 +26,15 @@
     	<link href="css/bootstrap.min.css" rel="stylesheet">
     	<!-- styles -->
     	<link href="css/styles.css" rel="stylesheet">
-    
-    	
-	   <style>
-    		#accessibility{
-    
-   			display: block;
-  				text-align: center;
-   			font-family: Arial,Helvetica,sans-serif;
-   			font-size:10px;
-   			width: 50%;
-			}
-			#accessibility ul {
-    			list-style: outside none none;
-			}
-			#accessibility li {
-    			display:inline;	
-			}
-			#accessibility span {
-   			background: blue none repeat scroll 0 0;
-   			color: #fff;
-   			padding: 0 3px;
-			}
-			#accessibility a {
-   			color: black;
-    			margin-right: 8px;
-			}
-    	
-    	</style>
+      <link href="css/noprint.css" rel="stylesheet" media="print">
+    	<link href="css/accessibility.css" rel="stylesheet">
+	   
 	</head>
    <body>
-		<div class="container">
+		<div class="container no-print">
 				<div class="col-xs-12 col-sm-12">
         	<!-- Lista usada para a barra de acessibilidade -->
-	      	<ul id="accessibility">
+	      	<ul id="accessibility" class="no-print">
             	<li>
                 	<a accesskey="1" href="#menuu">
                    	Ir para o Menu
@@ -86,7 +61,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html">Área do Cliente</a></h1>
+	                 <h1><a href="index.html" class="no-print">Área do Cliente</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-5">
@@ -116,7 +91,7 @@
               			</div>
                	<div class="collapse navbar-collapse">
                		<ul class="nav navbar-nav" role="menubar">
-                  	 	<a href="#" role="button">Deslogar <i class="glyphicon glyphicon-off"></i></a>
+                  	 	<a href="#" role="link">Deslogar <i class="glyphicon glyphicon-off"></i></a>
                   	</ul>
                	</div>
             		</div>
@@ -129,13 +104,13 @@
     	<div class="row" id="menuu">
 		  <div class="col-md-2">
 		  <!-- Este menu é exibido na barra lateral esquerda. -->
-		  	<div class="sidebar content-box" style="display: block;">
+		  	<div class="sidebar content-box no-print" style="display: block;" >
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="#" role="button"><i class="glyphicon glyphicon-home"></i> BEM-VINDO</a></li>
-                    <li><a href="agenda.html" role="button"><i class="glyphicon glyphicon-calendar"></i> Agendamento de serviços</a></li>
-                    <li><a href="historico.html" role="button"><i class="glyphicon glyphicon-list-alt"></i> Histórico</a></li>
-                    <li><a href="perfil.html" role="button"><i class="glyphicon glyphicon-cog"></i> Perfil</a></li>
+                    <li class="current"><a href="#" role="link"><i class="glyphicon glyphicon-home hidden-print"></i> BEM-VINDO</a></li>
+                    <li><a href="agenda.html" role="link"><i class="glyphicon glyphicon-calendar hidden-print"></i> Agendamento de serviços</a></li>
+                    <li><a href="historico.html" role="link"><i class="glyphicon glyphicon-list-alt hidden-print"></i> Histórico</a></li>
+                    <li><a href="perfil.html" role="link"><i class="glyphicon glyphicon-cog hidden-print"></i> Perfil</a></li>
                    
                 </ul>
          </div>

@@ -28,33 +28,21 @@
     <title>Compre seu carro</title>
 
     <!-- Bootstrap estilo e fontes para ícones -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	  <link href="css/font-awesome.min.css" rel="stylesheet">
     
     <link href="css/main.css" rel="stylesheet">
-    
+    <link href="css/noprint.css" rel="stylesheet" media="print">
      <script src="js/jquery.js"></script>
    
-   
+  
    <!-- Estilos para css da barra de acessibilidade -->
 	<link href="css/accessibility.css" rel="stylesheet">
-    <style type="text/css" media="print">
-        img {
-
-            display: none;
-        }
-        .carousel-holder{
-            display: none;
-
-
-        }
-
-
-    </style>
+   
    <!-- Script que controla a janela de aparição do formulário de compra.
    		Juntamente com a validação no servidor com uso de ajax -->  
    <script type="text/javascript">
-     
+   
 	 
 	$.ajax({
 		'url': 'serverside/checkcon.php',
@@ -131,7 +119,7 @@
  	<div class="row">
   		<div class="col-xs-12 col-sm-12">
         	<!-- Lista usada para a barra de acessibilidade -->
-	      	<ul id="accessibility">
+	      	<ul id="accessibility" class="no-print">
             	<li>
                 	<a accesskey="1" href="#navbar">
                    	Ir para o Menu
@@ -194,7 +182,7 @@
 		 		  Responsivo conforme o tamanho da tela, para medidas menores ocupa 12 colunas no grides, para maiores ocupa 6. 
 		 	
 		 	-->
-		  	<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 aler alert-info" id="confirma" style="border: solid 1px #7badc5; align:center" hidden="true">
+		  	<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 alert alert-info hidden-print" id="confirma" style="border: solid 1px #7badc5; align:center" hidden="true">
               <div class="row">
         				<div class="col-xs-12 col-md-12">
             			<div class="panel panel-default">
@@ -211,7 +199,7 @@
                         			<div class="input-group">
                             			<input type="text" class="form-control" id="cardNumber" placeholder="Número do cartão de crédito"
                                 			role="textbox" aria-required="true" required autofocus />
-                            			<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            			<span class="input-group-addon"><span class="glyphicon glyphicon-lock hidden-print"></span></span>
                         			</div>
                     				</div>
                     				<div class="row">
@@ -249,12 +237,12 @@
               			<ul class="nav nav-pills nav-stacked">
                 		<li class="active">
                 			<div class="alert alert-success" style="text-align:center" id="cfcompra" hidden="true" role="alert">
-									<strong><i class="glyphicon glyphicon-exclamation-sign"></i> Compra finalizada. Ela será processada em breve!</strong>                
+									<strong><i class="glyphicon glyphicon-exclamation-sign hidden-print"></i> Compra finalizada. Ela será processada em breve!</strong>                
                 			</div>
                 		</li>
                 		<li class="active">
 								<div class="alert alert-danger" style="text-align:center" id="declcompra" hidden="true" role="alert">
-									<strong><i class="glyphicon glyphicon-remove-sign"></i> Houve um problema ao consultar seus dados de créditos.</strong>
+									<strong><i class="glyphicon glyphicon-remove-sign hidden-print"></i> Houve um problema ao consultar seus dados de créditos.</strong>
 						
 								</div>                
               			</li>
@@ -287,7 +275,7 @@
 
             <div class="col-md-9">
 					 
-                <div class="row carousel-holder">
+                <div class="row carousel-holder no-print">
 
                     <div class="col-md-12" style="align:center">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -322,7 +310,7 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/cars/rsz_cruze.png" alt="Carro Chevrolet Cruze" role="img" class="img-responsive">
+                            <img src="images/cars/rsz_cruze.png" alt="Carro Chevrolet Cruze" role="img" class="img-responsive hidden-print">
                             <div class="caption">
                                 <h4 class="pull-right" id="car1p">R$ 51.990</h4>
                                 <h4><a href="#">Chevrolet Cruze LT 1.8 16V</a>
@@ -330,7 +318,7 @@
                                 <p>Automático, modelo 2013. </p>
                             </div>
                             <div class="ratings" id="bot">
-                                <button class="btn btn-xs btn-success" role="button" id="car1" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                                <button class="btn btn-xs btn-success" role="button" id="car1" disabled="true"><span class="glyphicon glyphicon-shopping-cart hidden-print"></span> Comprar
 			                         <span class="sr-only">Carro Chevrolet Cruze</span>        
                      			   </button>	         
                             </div>
@@ -339,7 +327,7 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/cars/prisma.jpg" alt="Carro Chevrolet Prisma Joy" role="img" class="img-responsive">
+                            <img src="images/cars/prisma.jpg" alt="Carro Chevrolet Prisma Joy" role="img" class="img-responsive hidden-print">
                             <div class="caption">
                                 <h4 class="pull-right" id="car2p">R$ 42.990</h4>
                                 <h4><a href="#">Chevrolet Prisma Joy 1.0</a>
@@ -348,7 +336,7 @@
                             </div>
                             <div class="ratings">
                             
-                                <button class="btn btn-xs btn-success" role="button" id="car2" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                                <button class="btn btn-xs btn-success" role="button" id="car2" disabled="true"><span class="glyphicon glyphicon-shopping-cart hidden-print"></span> Comprar
 			                         <span class="sr-only">Carro Chevrolet Prisma Joy</span>        
                                 </button>
                             </div>
@@ -357,7 +345,7 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/cars/rsz_gc2.jpg" alt="Carro Geely GC2" role="img" class="img-responsive">
+                            <img src="images/cars/rsz_gc2.jpg" alt="Carro Geely GC2" role="img" class="img-responsive hidden-print">
                             <div class="caption">
                                 <h4 class="pull-right" id="car3p">R$ 29.990</h4>
                                 <h4><a href="#">Geely GC2 1.0</a>
@@ -365,7 +353,7 @@
                                 <p>subcompacto chinês, importanto ao Brasil com motor de 3 cilindros.</p>
                             </div>
                             <div class="ratings">
-                                <button class="btn btn-xs btn-success" role="button" id="car3" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                                <button class="btn btn-xs btn-success" role="button" id="car3" disabled="true"><span class="glyphicon glyphicon-shopping-cart hidden-print"></span> Comprar
 			                         <span class="sr-only">Carro Geely GC2</span>        
                                 </button>
                             </div>
@@ -374,7 +362,7 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/cars/passat.png" alt="Carro Volkswagen Passat" role="img" class="img-responsive">
+                            <img src="images/cars/passat.png" alt="Carro Volkswagen Passat" role="img" class="img-responsive hidden-print">
                             <div class="caption">
                                 <h4 class="pull-right" id="car4p">R$ 144.500</h4>
                                 <h4><a href="#">Volkswagen Passat 2.0 turbo</a>
@@ -382,7 +370,7 @@
                                 <p>Novo Passat, de 0 a 100 em 6.7s</p>
                             </div>
                             <div class="ratings">
-                                <button class="btn btn-xs btn-success" role="button" id="car4" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                                <button class="btn btn-xs btn-success" role="button" id="car4" disabled="true"><span class="glyphicon glyphicon-shopping-cart hidden-print"></span> Comprar
 			                         <span class="sr-only">Carro Volkswagen Passat</span>        
                                 </button>
                             </div>
@@ -391,7 +379,7 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="images/cars/rsz_fiesta.jpg" alt="Carro Ford Fiesta" role="img" class="img-responsive">
+                            <img src="images/cars/rsz_fiesta.jpg" alt="Carro Ford Fiesta" role="img" class="img-responsive hidden-print">
                             <div class="caption">
                                 <h4 class="pull-right" id="car5p">R$ 27.899</h4>
                                 <h4><a href="#">Ford Fiesta 1.6</a>
@@ -399,7 +387,7 @@
                                 <p>Manual, modelo 2012, 60mil Km. Único dono</p>
                             </div>
                             <div class="ratings">
-                                <button class="btn btn-xs btn-success" role="button" id="car5" disabled="true"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar
+                                <button class="btn btn-xs btn-success" role="button" id="car5" disabled="true"><span class="glyphicon glyphicon-shopping-cart hidden-print"></span> Comprar
 			                         <span class="sr-only">Carro Ford Fiesta</span>
 			                        </button>        
                                 

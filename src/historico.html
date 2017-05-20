@@ -30,39 +30,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- styles para os menus -->
     <link href="css/styles.css" rel="stylesheet">
-	  	
-  	 <style>
-			
-    		#accessibility{
-    
-   			display: block;
-  				text-align: center;
-   			font-family: Arial,Helvetica,sans-serif;
-   			font-size:10px;
-   			width: 50%;
-			}
-			#accessibility ul {
-    			list-style: outside none none;
-			}
-			#accessibility li {
-    			display:inline;	
-			}
-			#accessibility span {
-   			background: blue none repeat scroll 0 0;
-   			color: #fff;
-   			padding: 0 3px;
-			}
-			#accessibility a {
-   			color: black;
-    			margin-right: 8px;
-			}
-    	
-    	</style>
+	 <link href="css/noprint.css" rel= "stylesheet" media="print">
+	 <link href="css/accessibility.css" rel="stylesheet">
+  
     
   </head>
   <body>
   
-  	<div class="container">
+  	<div class="container no-print">
 				<div class="col-xs-12 col-sm-12">
         	<!-- Lista usada para a barra de acessibilidade -->
 	      	<ul id="accessibility">
@@ -88,7 +63,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html" role="button">Área do Cliente</a></h1>
+	                 <h1><a class="hidden-print" href="index.html" role="link">Área do Cliente</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-5">
@@ -125,13 +100,13 @@
    <div class="page-content">
     	<div class="row">
 		  <div class="col-md-2">
-		  	<div class="sidebar content-box" style="display: block;" id="menuu">
+		  	<div class="sidebar content-box no-print" style="display: block;" id="menuu">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li><a href="cliente.html" role="button"><i class="glyphicon glyphicon-home"></i> BEM-VINDO</a></li>
-                    <li><a href="agenda.html" role="button"><i class="glyphicon glyphicon-calendar"></i> Agendamento de serviços</a></li>
-                    <li class="current"><a href="#" role="button"><i class="glyphicon glyphicon-list-alt"></i> Histórico</a></li>
-                    <li><a href="perfil.html" role="button"><i class="glyphicon glyphicon-cog"></i> Perfil</a></li>
+                    <li><a href="cliente.html" role="link"><i class="hidden-print glyphicon glyphicon-home"></i> BEM-VINDO</a></li>
+                    <li><a href="agenda.html" role="link"><i class="hidden-print glyphicon glyphicon-calendar"></i> Agendamento de serviços</a></li>
+                    <li class="current"><a href="#" role="link"><i class="hidden-print glyphicon glyphicon-list-alt"></i> Histórico</a></li>
+                    <li><a href="perfil.html" role="link"><i class="hidden-print glyphicon glyphicon-cog"></i> Perfil</a></li>
                     
                 </ul>
              </div>

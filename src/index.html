@@ -71,7 +71,7 @@
 	        		<div class="row">
 	        			<div class="col-xs-12 col-sm-12"
 	        		 <!-- Lista usada para a barra de acessibilidade -->
-	        		 <ul id="accessibility">
+	        		 <ul id="accessibility" class="hidden-print">
             		<li>
                 		<a accesskey="1" href="#navbar">
                     		Ir para o conteúdo
@@ -152,9 +152,9 @@
 	        </div><!--/.carousel-inner-->
 	        <br><br><div class="row"><br>
 	        		<div class="col-lg-6 col-sm-12 col-xs-6 "> 
-	        <a class="prev" href="#main-slider" data-slide="prev" role="button"><i class="icon-angle-left"></i></a></div>
+	        <a class="prev" href="#main-slider" data-slide="prev" role="button"><i class="icon-angle-left hidden-print"></i></a></div>
 	        		<div class="col-lg-6 col-sm-12 col-xs-6 "> 
-	        <a class="next" href="#main-slider" data-slide="next" role="button"><i class="icon-angle-right"></i></a>
+	        <a class="next" href="#main-slider" data-slide="next" role="button"><i class="icon-angle-right hidden-print"></i></a>
 	    		</div></div>    <br><br>
 	    		
 	   </section><!--/#main-slider-->
@@ -179,19 +179,22 @@
 	                            <div class="row">
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
-	                                        <input type="text" class="form-control" required="required" placeholder="Nome" role="textbox">
+	                                    	 <label for="rname" class="sr-only"> Digite seu nome (obrigatório)</label>
+	                                        <input id="rname" type="text" class="form-control" required="required" placeholder="Nome" role="textbox">
 	                                    </div>
 	                                </div>
 	                                <div class="col-sm-6">
 	                                    <div class="form-group">
-	                                        <input type="email" class="form-control" required="required" placeholder="Email" role="textbox">
+	                                    	 <label for="remail" class="sr-only"> Digite seu email</label>
+	                                        <input id="remail" type="email" class="form-control" required="required" placeholder="Email" role="textbox">
 	                                    </div>
 	                                </div>
 	                            </div>
 	                            <div class="row">
 	                                <div class="col-sm-12">
-	                                    <div class="form-group">
-	                                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Mensagem" role="textbox"></textarea>
+	                                    <div class="form-group"> 
+	                                        <label for="rmsg" class="sr-only">Digite sua mensagem</label>
+	                                        <textarea id="rmsg" name="message" id="message" required="required" class="form-control" rows="8" placeholder="Mensagem" role="textbox"></textarea>
 	                                    </div>
 	                                    <div class="form-group">
 	                                        <button type="submit" class="btn btn-danger btn-lg" role="button">Enviar</button>
@@ -218,7 +221,7 @@
 	                       		 <h1>Redes sociais</h1>
 	                            <div class="col-md-6 col-lg-3 col-sm-12 col-xs-12">
 	                                <ul class="social">
-	                                    <li><a href="#"><i class="icon-facebook icon-social" role="link"></i> Facebook</a></li>
+	                                    <li><a href="#"><i class=" icon-facebook icon-social hidden-print" role="link"></i> Facebook</a></li>
 	                                    <!-- <li><a href="#"><i class="icon-google-plus icon-social"></i> Google Plus</a></li>
 	                                    <li><a href="#"><i class="icon-pinterest icon-social"></i> Pinterest</a></li> -->
 	                                </ul>
@@ -226,7 +229,7 @@
 	                            <div class="col-md-6 col-lg-3 col-sm-12 col-xs-12">
 	                                <ul class="social">
 	                                   <!-- <li><a href="#"><i class="icon-linkedin icon-social"></i> Linkedin</a></li> -->
-	                                    <li><a href="#"><i class="icon-twitter icon-social" role="link"></i> Twitter</a></li>
+	                                    <li><a href="#"><i class=" icon-twitter icon-social hidden-print" role="link"></i> Twitter</a></li>
 	                                   <!-- <li><a href="#"><i class="icon-youtube icon-social"></i> Youtube</a></li> -->
 	                                </ul>
 	                            </div>

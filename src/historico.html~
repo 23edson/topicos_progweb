@@ -1,0 +1,184 @@
+<!--
+
+	Projeto I
+	Aluno: Edson Lemes
+	Tópicos em programação Web.
+	 
+	Descrição geral da página
+	
+	Esta página mostra a tabela de histórico do cliente,
+	ao agendar um horário de serviço, este é adicionado ao 
+	seu histórico. Sendo que cada uma ocorrência possui duas 
+	definições: finalizado ou não. Esta tabela é responsiva
+	para cada formato de tela. Novamente há a acessibilidade
+	em relação ao 'roles', o menu, principalmente estes dois
+	além da navegação via teclado na página. 
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  	 <meta charset="UTF-8">
+    <title>Área do Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery UI para a tabela -->
+    <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
+
+    <!-- Formatação Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles para os menus -->
+    <link href="css/styles.css" rel="stylesheet">
+	 <link href="css/noprint.css" rel= "stylesheet" media="print">
+	 <link href="css/accessibility.css" rel="stylesheet">
+  
+    
+  </head>
+  <body>
+  
+  	<div class="container no-print">
+				<div class="col-xs-12 col-sm-12">
+        	<!-- Lista usada para a barra de acessibilidade -->
+	      	<ul id="accessibility">
+            	<li>
+                	<a accesskey="1" href="#menuu">
+                   	Ir para o Menu
+                    <span>1</span>
+                	</a>
+            	</li>
+            	<li>
+                	<a accesskey="2" href="#conteudo">
+                   	Ir para o conteúdo
+                   	<span>2</span>
+                	</a>
+            	</li>
+            	
+        		</ul>
+        	</div>	
+	</div>
+  	<div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-5">
+	              <!-- Logo -->
+	              <div class="logo">
+	                 <h1><a class="hidden-print" href="index.html" role="button">Área do Cliente</a></h1>
+	              </div>
+	           </div>
+	           <div class="col-md-5">
+	              <div class="row">
+	                <div class="col-lg-12">
+	                  <div class="input-group form">
+	                       
+	                  </div>
+	                </div>
+	              </div>
+	           </div>
+	           <div class="col-md-2">
+	             <div id="navbar" class="navbar navbar-default" role="menu">
+            			<div class="navbar-header">
+               			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  			<span class="sr-only">Menu de navegação </span>
+                     		<span class="icon-bar"></span>
+                     		<span class="icon-bar"></span>
+                     		<span class="icon-bar"></span>
+                  		</button>
+                  		
+              			</div>
+               	<div class="collapse navbar-collapse">
+               		<ul class="nav navbar-nav" role="menubar">
+                  	 	<a href="#" role="button">Deslogar <i class="glyphicon glyphicon-off"></i></a>
+                  	</ul>
+               	</div>
+            		</div>
+	           </div>
+	        </div>
+	     </div>
+	</div>
+	<!--Menu de navegação, assim como os outros arquivos. -->	
+   <div class="page-content">
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box no-print" style="display: block;" id="menuu">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li><a href="cliente.html" role="button"><i class="hidden-print glyphicon glyphicon-home"></i> BEM-VINDO</a></li>
+                    <li><a href="agenda.html" role="button"><i class="hidden-print glyphicon glyphicon-calendar"></i> Agendamento de serviços</a></li>
+                    <li class="current"><a href="#" role="button"><i class="hidden-print glyphicon glyphicon-list-alt"></i> Histórico</a></li>
+                    <li><a href="perfil.html" role="button"><i class="hidden-print glyphicon glyphicon-cog"></i> Perfil</a></li>
+                    
+                </ul>
+             </div>
+		  </div>
+		 <main role="main">
+		  <div class="col-md-10">
+			<!--Exibição do histórico de serviços realizados que foram agendados. Tabela responsiva
+			 levando em conta o tamanho da tela, usando componentes do bootstrap. 
+			 A acessibilidade: roles definidos, assim como menu de acessibilidade no topo da página.			 
+			 
+			 -->
+			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title" id="conteudo"><h4>Histórico na loja</h4></div>
+				</div>
+  				<div class="panel-body">
+  					<div class="table-responsive">
+  						<table class="table" role="list">
+			              <thead>
+			                <tr>
+			                  <th>#</th>
+			                  <th>Data</th>
+			                  <th>Serviço</th>
+			                  <th>Concluído</th>
+			                </tr>
+			              </thead>
+			              <tbody>
+			                <tr class="success">
+			                  <td>1</td>
+			                  <td>10/01/2015</td>
+			                  <td>Compra</td>
+			                  <td>Sim</td>
+			                </tr>
+			                <tr class="success">
+			                  <td>2</td>
+			                  <td>11/06/2015</td>
+			                  <td>Troca de óleo</td>
+			                  <td>Sim</td>
+			                </tr>
+			                <tr  class="danger">
+			                  <td>3</td>
+			                  <td>11/01/2016</td>
+			                  <td>Revisão</td>
+			                  <td>Não</td>
+			                </tr>
+			              </tbody>
+			            </table>
+  					</div>
+  				</div>
+  			</div>
+
+
+
+		  </div>
+		</main>
+		</div>
+    </div>
+
+    <footer role="infocontent">
+         <div class="container">
+         
+            <div class="copy text-center">
+               2017 <a href='index.html'>Moss AP</a>
+            </div>
+            
+         </div>
+      </footer>
+
+    
+	 <!--Formatação para a tabela -->    
+    <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" media="screen">
+
+   
+  </body>
+</html>

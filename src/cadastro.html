@@ -105,7 +105,7 @@
    	<div class="row"> 
       	<div class="col-xs-12 col-sm-12">
         	<!-- Lista usada para a barra de acessibilidade -->
-	      	<ul id="accessibility">
+	      	<ul id="accessibility" class="hidden-print">
             	<li>
                 	<a accesskey="1" href="#navbar">
                    	Ir para o conteúdo
@@ -160,7 +160,7 @@
   							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Nome (Obrigatório)</label>  
   							<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
   								<div class="input-group">
-  									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  									<span class="input-group-addon"><i class="glyphicon glyphicon-user hidden-print"></i></span>
   									<input  name="first_name" placeholder="Nome" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
@@ -171,7 +171,7 @@
   							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only" >Sobrenome (Obrigatório)</label> 
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
-  									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  									<span class="input-group-addon"><i class="glyphicon glyphicon-user hidden-print"></i></span>
   									<input name="last_name" placeholder="Sobrenome" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
@@ -182,7 +182,7 @@
   							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">E-Mail (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
-        							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope hidden-print"></i></span>
   									<input name="email" placeholder="E-Mail" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
@@ -194,7 +194,7 @@
   							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Telefone (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
-        							<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+        							<span class="input-group-addon"><i class="glyphicon glyphicon-earphone hidden-print"></i></span>
   									<input name="phone" placeholder="(XX)XXXX-XXXX" class="form-control" type="text" role="textbox" required="true">
    	 						</div>
   							</div>
@@ -205,7 +205,7 @@
   							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Endereço (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
-        							<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        							<span class="input-group-addon"><i class="glyphicon glyphicon-home hidden-print"></i></span>
   									<input name="address" placeholder="Endereço" class="form-control" type="text" role="textbox" required="true">
     							</div>
   							</div>
@@ -216,7 +216,7 @@
   							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Cidade (Obrigatório)</label>  
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 inputGroupContainer">
     							<div class="input-group">
-        							<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        							<span class="input-group-addon"><i class="glyphicon glyphicon-home hidden-print"></i></span>
   									<input name="city" placeholder="Cidade" class="form-control"  type="text" role="textbox" required="true">
     							</div>
   							</div>
@@ -228,7 +228,7 @@
   							<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label sr-only">Estado (Obrigatório)</label>
     						<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12 selectContainer">
     							<div class="input-group">
-        							<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+        							<span class="input-group-addon"><i class="glyphicon glyphicon-list hidden-print"></i></span>
     								<select name="state" class="form-control selectpicker" required="true"  role="select">
       								<option value=" " >Escolha seu estado</option>
      									<option>Santa Catarina</option>
@@ -299,9 +299,9 @@
   						<label class="col-md-4 col-lg-6 col-sm-8 col-xs-12 control-label"></label>
   							<div class="col-md-4 col-lg-6 col-sm-8 col-xs-12">
   								<!-- Success message. Alerta de sucesso, para o cadastro -->
-					 			 <div class="alert alert-success" role="alert" id="success_message" hidden="true"><i class="glyphicon glyphicon-thumbs-up"></i> Pronto.  
+					 			 <div class="alert alert-success hidden-print" role="alert" id="success_message" hidden="true"><i class="glyphicon glyphicon-thumbs-up"></i> Pronto.  
 					  					Cadastro finalizado.</div>
-    							 <button type="submit" class="btn btn-warning" role="button" >Cadastrar <span class="glyphicon glyphicon-send"></span></button>
+    							 <button type="submit" class="btn btn-warning hidden-print" role="button" >Cadastrar <span class="glyphicon glyphicon-send"></span></button>
   							</div>
 					</div>
 			</form>
